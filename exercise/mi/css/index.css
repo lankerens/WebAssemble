@@ -1,0 +1,690 @@
+/*  主页index.html 的样式表  */
+
+/*  顶部导航条的容器  */
+.topbar-wrapper{
+    /* 设置宽度全屏  */
+    width: 100%;
+    /*  设置背景颜色  */
+    background-color: #333;
+    /*  设置高度和行高 ( 居中 */
+    height: 40px;
+    line-height: 40px;
+}
+/*  设置超链接的颜色  */
+.topbar a{
+    font-size: 12px;
+    color: #b0b0b0;
+    display: block;
+}
+
+/*  设置超链接移入效果  */
+.topbar a:hover{
+    color: #fff;
+}
+
+/*  设置左侧导航  */
+.service, .topbar li{
+    float: left;
+}
+
+.app{
+    /*  现在 after 的定位就参考它了  */
+    position: relative;
+}
+
+/*  设置 app 下的小三角  */
+.app::after{
+    display: none;
+
+    content: '';
+    /*  设置绝对定位  ---- 脱离文档流了 -- 已经变成 block 了 */
+    position: absolute;
+    /* display: block; */
+    width: 0;
+    height: 0;
+    /*  设置四个方向的边框  */
+    border: 8px solid transparent;
+    /*  去除上边框  */
+    border-top: none;
+    /*  单独设置下边框的颜色  */
+    border-bottom-color: #fff;
+    /*  测试定位效果  */
+    /* top: 0;
+    left: 0; */
+    bottom: 0;
+    /*  水平居中   */
+    left: 0;
+    right: 0;
+    /* margin: 0 auto; */
+    margin: auto;
+
+}
+
+.app:hover .qrcode, 
+.app:hover::after{
+    display: block;
+    /*  二维码出来  */
+    height: 148px;
+}
+
+/*  设置下载 app 的下拉  */
+.app .qrcode{
+    /*  隐藏起来  */
+    /* display: none; */
+    /*  隐藏方式二 --- 更好的加入动画效果 */
+    height: 0;
+    overflow: hidden;
+
+    /*  不应该在父元素容器中占据位置 -- 是个弹出层  */
+    /*  所以开启绝对定位  */
+    position: absolute;
+    /*  二维码居中  */
+    left: -40px;
+
+    width: 124px;
+    /* height: 148px; */
+    background-color: #fff;
+    /*  行高设置成一倍  */
+    line-height: 1;
+    
+    /*  水平居中  */
+    text-align: center;
+
+    /*  阴影效果  */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+    /*
+        transition 
+            用于为样式设置过渡效果
+    */
+    /*  height --- 花费三秒的时间来变化  */
+    transition: height 0.3s; 
+    /*  设置层级  */
+    z-index: 9999;
+}
+
+
+/*
+使用元素选择器
+
+li:hover>.app .qrcode{
+    display: block;
+}
+
+li:hover > .app::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+} 
+
+
+使用类选择器
+
+.app-wrapper>.app .qrcode{
+    display: block;
+}
+
+.app-wrapper > .app::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+*/
+
+
+/*  设置二维码图片  */
+.app .qrcode img{
+    width: 90px;
+    height: 90px;
+    /* margin: 0 17px;
+    margin-top: 20px; */
+    margin: 17px;
+    margin-bottom: 10px;
+
+}
+
+/*  为什么这里设置了字体颜色，然后继承父类的hover效果消失了  */
+/*  设置二维码中文字  */
+.app .qrcode span{
+    font-size: 14px;
+    color: #000;
+}
+
+
+/*  设置右侧的导航  */
+.shop-cart, .user-info{
+    float: right;
+}
+
+/*  设置中间的分割线  */
+.topbar .line{
+    color: #424242;
+    font-size: 12px;
+    margin: 0 8px;
+    /*  微调位置  */
+    margin-top: -1px;
+}
+
+/*  消息通知 与 购物车之间的距离  */
+/* .user-info{
+    margin-right: 26px;
+} */
+.shop-cart{
+    margin-left: 26px;
+}
+
+
+/*  设置购物车的样式  */
+.shop-cart a{
+    width: 120px;
+    background-color: #424242;
+    /*  设置水平居中  */
+    text-align: center;
+}
+
+/*  给 shop-cart houver 以后，给a设置样式  */
+.shop-cart:hover a{
+    background-color: #fff;
+    color: #ff6700;
+}
+
+
+/*  购物券图标与文字距离微调  */
+.shop-cart i{
+    margin-right: 2px;
+}
+
+
+/* ------------------------------------------------------------------------ */
+
+.header-wrapper{
+    /* background-color: red; */
+    position: relative;
+}
+
+/* 设置中间的 header  */
+.header{
+    height: 100px;
+
+}
+
+/*  这是个 h1 -- 不能移动  */
+.header .logo{
+    float: left;
+    margin-top: 22px;
+    width: 55px;
+    height: 55px;
+    /*  为 a 作参考  */
+    position: relative;
+
+    /*  溢出裁剪  */
+    /*  home 藏起来了  */
+    overflow: hidden;
+
+    /*  首行缩进 --- 隐藏logo文字 */
+    text-indent: -9999px;
+    /*  -9999 向左移动了9999px 已经跑到浏览器外面了  */
+}
+
+/*  统一设置logo超链接  */
+.header .logo a{
+    /*  开启绝对定位 -- 水平排列  */
+    position: absolute;
+    /* display: block; */
+    width: 55px;
+    height: 55px;
+    /*  必须要有个起始值 --- 不然后面的 transition 有问题  */
+    left: 0;
+    background-color: #ff6700;
+    background-image: url('../img/mi-logo.png');
+    /*  背景图片居中效果  */
+    background-position: center;
+
+    /*  过渡鲜果  */
+    transition: left 0.3s;
+}
+
+/*  设置 home 图片  */
+.header .logo .home{
+    background-image: url('../img/mi-home.png');
+    /* left: 0; */
+    left: -55px;
+}
+
+/* 设置鼠标移入以后两个图片的位置 */
+.header .logo:hover .mi{
+    left: 55px;
+}
+
+.header .logo:hover .home{
+    left: 0;
+}
+
+
+
+/*  设置 header 中间的导航条  */
+.header .nav-wrapper{
+    float: left;
+    margin-left: 7px;
+}
+
+/*  设置导航条  */
+.header .nav{
+    /*  宽度不写 --- 被内容撑开  */
+    /* width: 792px; */
+
+    height: 100px;
+    /*  让文字在父元素中达到垂直居中的效果  */
+    line-height: 100px;
+    /*  这样就整体往右摞了 -- 占了别人的位置 -- 不合适 */
+    /* margin-left: 58px; */
+    padding-left: 58px;
+
+}
+
+/*  设置 导航条中的 li  */
+.nav-wrapper .nav > li{
+    float: left;
+}
+
+.all-goods-wrapper{
+    /*  让 left-menu 参考它定位  */
+    position: relative;
+}
+
+/*  设置 左侧 导航条的样式  */
+.left-menu{
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, .6);
+    
+    position: absolute;
+    /*  设置层级  */
+    z-index: 999;
+    left: -120px;
+
+    /*  重置行高  --- 一倍的效果 */
+    line-height: 1;
+
+}
+
+ul .left-menu li a{
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    color: white;
+    /*  发现没有生效 -- 优先级不够  */
+    margin-right: 0;
+    padding: 0 30px;
+    font-size: 14px;
+}
+
+ul .left-menu li a:hover{
+    color: white;
+    background-color: #ff6700;
+}
+
+
+.left-menu a i{
+    float: right;
+    /*  浮动后原来的行高对它没用了。 重新设置一下  */
+    line-height: 42px;
+
+}
+
+.nav-wrapper li a{
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.nav-wrapper li a:hover{
+    color: #ff6700;
+}
+
+/*  隐藏全部商品  */
+.all-goods{
+    /*  不行的 -- display none 会不占位置  */
+    /* display: none; */
+    visibility: hidden;
+
+}
+
+
+/* .nav li:hover + .goods-info{  不能用 + ， + 是紧挨着的兄弟元素  */
+/*  选择后面所有的同级元素  */
+/* .nav li:not(:first-of-type):not(:last-of-type):not(:nth-child(9)):hover ~ .goods-info,  */
+.nav .show-goods:hover ~ .goods-info, 
+.nav .goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 0 5px 3px rgba(0, 0, 0, .2);
+}
+
+.nav .goods-info{
+    /* height: 228px; */
+    height: 0;
+    overflow: hidden;
+
+    /*  是包含块的 100%  */
+    /*  开启定位后，包含块就是 header-wrapper  */
+    width: 100%;
+    background-color: #fff;
+    /* border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 0 5px 3px rgba(0, 0, 0, .2); */
+
+    /*  开启绝对定位 -- 脱离文档流  */
+    position: absolute;
+
+    /*  参照物是 header-wrapper  */
+    /* left: 0;
+    top: 0; */
+    top: 100px;
+    left: 0;
+    transition: height 0.3s;
+    /*  设置层级  */
+    z-index: 9999;
+}
+
+/*  设置搜索框的容器  */
+.search-wrapper{
+    width: 296px;
+    height: 50px;
+    /* background-color: red; */
+    float: right;
+    /* border: 1px solid rgb(224, 224, 224); */
+    margin-top: 25px;
+    font-size: 16px;
+    
+}   
+
+
+.search-wrapper .search-inp{
+    box-sizing: border-box;
+    width: 244px;
+    float: left;
+    /*  input 中还存在着一些默认的 padding   */
+    /*  将 默认的 padding 去掉  */
+    padding: 0;
+    border: none;
+    height: 50px;
+    /*  输入框 padding  */
+    padding: 0 10px;
+    border: 1px solid rgb(224, 224, 224);
+
+    outline: none;
+}
+
+/*  设置 input 获取焦点后的样式  */
+.search-wrapper .search-inp:focus, 
+.search-wrapper .search-inp:focus + button{
+    /* outline: 1px solid #ff6700; */
+    border-color: #ff6700;
+}
+
+
+.search-wrapper .search-btn{
+    float: left;
+    height: 50px;
+    width: 52px;
+    /*  button 默认有个属性式  border-box  =--- 设置的 宽 高是 边框 + 内边距 + 内容区的大小  */
+    padding: 0;
+    border: none;
+    background-color: #fff;
+    color: #616161;
+    font-size: 16px;
+
+    /* border-left: 1px solid rgb(224, 224, 224); */
+    border: 1px solid rgb(224, 224, 224);
+    border-left: none;
+}
+
+.search-wrapper .search-btn:hover{
+    background-color: #ff6700;
+    color: #fff;
+    border: none;
+}
+
+
+
+/* ---------------------------------------------------------------------- */
+
+/*  设置 banner   */
+.banner{
+    /*  宽度已经设置了  */
+    position: relative;
+    height: 460px;
+}
+
+.banner .img-list li{
+    /*  开启绝对定位 --- 脱离文档流  */
+    position: absolute;
+}
+
+.banner img{
+    width: 100%;
+    vertical-align: top;
+}
+
+/*  设置 5 哥导航点  */
+.pointer{
+    position: absolute;
+    bottom: 22px;
+    right: 35px;
+}
+
+.pointer a{
+    float: left;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, .4);
+    border: 2px rgba(255, 255, 255, .4) solid;
+    /*  变成园形  */
+    border-radius: 50%;
+    margin-left: 6px;
+
+}
+
+.pointer a:hover, 
+.pointer a.active{
+    border-color:  rgba(0, 0, 0, .4);
+    background-color:rgba(255, 255, 255, .4);
+}
+
+/*  设置轮播图的两个箭头  */
+.prev-next a{
+    width: 41px;
+    height: 69px;
+    background-image: url(../img/icon-slides.png);
+    position: absolute;
+
+    /*  垂直居中  */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.prev-next .prev{
+    left: 234px;
+    background-position: -84px 0;
+}
+
+.prev-next .prev:hover{
+    left: 234px;
+    background-position: 0 0;
+}
+
+.prev-next .next{
+    right: 0;
+    background-position: -125px 0;
+}
+
+.prev-next .next:hover{
+    right: 0;
+    background-position: -42px 0;
+}
+
+
+/*  设置 回到顶部的元素  */
+.back-top{
+    width: 26px;
+    height: 206px;
+    background-color: #bfa;
+
+    /*  开启固定定位  */
+    position: fixed;
+    /*  固定定位是根据可视视口进行定位的 ， 但是现在可视视口大小是不固定的 */
+
+    /*  定位纵向的位置  */
+    bottom: 60px;
+    
+    /*  
+        布局的等式
+        （只是针对本例说的）
+            left + margin-left + width + margin-right + right = 视口宽度
+                如果填 margin-right 去定位 -- 是不行的
+
+            auto    0             26         0            60  =  视口宽度
+    */
+
+    right: 50%;  /* 将 right 值设置为视口宽度的 50% */
+
+    /*
+        auto  0  26  0  50% = 视口宽度
+        
+        auto + x  0  26 -x 50% = 视口宽度 ✔
+
+        margin-right -- 影响的是别的元素的位置 --(= maring-bottom
+    */
+    margin-right: -639px;
+         
+}
+
+
+/*  设置下面的广告区域  */
+body .ad{
+    /* background-color: red; */
+    height: 170px;
+    margin-top: 14px;
+
+}
+
+.ad .shortcut, 
+.ad .imgs, 
+.ad li{
+    float: left;
+}
+
+
+/*  设置左侧快捷方式  */
+.ad .shortcut{
+    width: 228px;
+    height: 168px;
+    background-color: #5f5750;
+    margin-right: 14px;
+
+    /*  这是为了调整 shortcut 中的边框的位置  */
+    /*  这个增加相应减小 上面的 width 或 height  */
+    padding-top: 2px;
+    padding-left: 6px;
+
+}
+
+.ad .shortcut li{
+    position: relative;
+}
+
+/*  设置 上边框  */
+.ad .shortcut li::before{
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    background-color: #665e57;
+    /*  水平居中  */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+/*  设置 左边框  */
+.ad .shortcut li::after{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 1px;
+    background-color: #665e57;
+    /*  垂直居中  */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+}
+
+/*  设置快捷方式中的超链接  */
+.ad .shortcut a{
+    color: #cfccca;
+    display: block;
+    height: 84px;
+    width: 76px;
+    text-align: center;
+    font-size: 12px;
+    /*  开启 BFC  */
+    overflow: hidden;
+}
+
+.ad .shortcut a:hover{
+    color: #fff;
+}
+
+/*  设置图标字体  */
+.ad .shortcut i{
+    /*  这样就独占一行了  */
+    display: block;
+    /*  可设置水平居中  */
+    
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+
+/*  设置左侧图片  */
+.ad .imgs li{
+    width: 316px;
+    margin-right: 15px;
+}
+
+.ad .imgs li:last-child{
+    margin-right: 0;
+}
+
+.ad .imgs img{
+    /*  跟随父元素一样大  */
+    width: 100%;
+    /*  设置图片不要沿着基线对齐  */
+    vertical-align: top; 
+}
+
+
+
+
+
