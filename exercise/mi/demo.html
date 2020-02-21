@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  弹出层的小三角  -->
+    <style>
+        .box1{
+            /* width: 100px;
+            height: 100px; */
+
+            border: 10px red solid;
+
+            border-color: red orange blue yellow;
+            /*  发现这个边框是梯形的  */
+            
+            /*  当宽度 和 高度变成 0 0 后  */
+            width: 0;
+            height: 0;
+
+            /*  小三角出来了  */
+
+            border-top: none;
+            /*  保留左右 和 下面的小三角  */
+            /*  左右去掉就不能得到向上的小三角了  */
+            
+
+            /*  
+                最终方案
+            */
+            border-color: transparent transparent  blue transparent;
+
+            /*  
+                其他方向的小三角也以此类推
+            */
+
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="box1"></div>
+
+</body>
+</html>
