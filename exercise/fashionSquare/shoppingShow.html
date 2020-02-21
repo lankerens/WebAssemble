@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单导航栏</title>
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <style>
+        .nav-wrapper {
+            height: 40px;
+            width: 100%;
+            background-color: rgb(51, 51, 51);
+            min-width: 1228px;
+        }
+
+        .nav_bg {
+            width: 1228px;
+            margin: 0 auto;
+            line-height: 40px;
+        }
+
+        .nav {
+            float: left;
+        }
+
+        .nav a {
+            font-size: 16px;
+            color: white;
+            display: block;
+            padding: 0 15px;
+        }
+
+        .nav a:hover {
+            color: #ff6700;
+            background-color: #fff;
+        }
+
+        .nav li {
+            float: left;
+        }
+
+        /*  -------------------------------------------------------  */
+
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .con-wrapper {
+            width: 1228px;
+            margin: 10px auto;
+            background-color: rgb(245, 245, 245);
+
+        }
+
+        .con-wrapper .leftbar-wrapper {
+            width: 220px;
+            background-color: rgb(157, 163, 162);
+            float: left;
+
+        }
+
+        .leftbar-wrapper .menu {
+            margin: 30px 0;
+        }
+
+
+        /*  设置标题  */
+        .leftbar-wrapper .menu .title {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .leftbar-wrapper .menu a {
+            color: #fff;
+            display: block;
+            padding: 10px 40px;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            background-color: #ff6700;
+        }
+
+        /*  ---------------------------------------------------------------------   */
+
+        .con-wrapper .siddle {
+            width: 988px;
+            float: left;
+            margin-left: 20px;
+        }
+
+        .con-wrapper .pic_title {
+            font-size: 23px;
+            color: rgb(51, 51, 51);
+            margin: 10px;
+        }
+
+        .con-wrapper .pic_list {
+            width: 100%;
+            margin-top: 25px;
+
+        }
+
+        .con-wrapper .pic_list dl {
+            box-sizing: border-box;
+            float: left;
+            width: 225px;
+            height: 339px;
+            /* border: 1px solid red; */
+            border-top: 1px solid pink;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+            margin: 0 10px;
+        }
+
+        .con-wrapper .pic_list div {
+            width: 150px;
+            /* background-color: red; */
+            margin: 0 auto;
+
+            margin-bottom: 20px;
+        }
+
+
+        .pic_list .price {
+            font-size: 16px;
+
+        }
+
+        .pic_list .font12 {
+            font-size: 12px;
+        }
+
+        .pic_list dd {
+            margin-top: 20px;
+            font-size: 12px;
+            padding: 0 10px;
+        }
+
+
+        .foot_line {
+            border-top: 1px  rgb(157, 163, 162) solid;
+            width: 1228px;
+            padding: 20px 0;
+            font-size: 12px;
+            margin: 50px auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 菜单导航栏  -->
+    <div class="nav-wrapper">
+        <div class="nav_bg">
+            <ul class="nav">
+                <li><a href="shoppingShow.html" class="white">首页</a></li>
+                <li>
+                    <a href="shoppingShow.html" class="white">最新上架</a>
+                </li>
+                <li>
+                    <a href="shoppingShow.html" class="white">品牌活动</a>
+                </li>
+                <li>
+                    <a href="shoppingShow.html" class="white">原厂直供</a>
+                </li>
+                <li>
+                    <a href="shoppingShow.html" class="white">团购</a>
+                </li>
+                <li>
+                    <a href="shoppingShow.html" class="white">限时抢购</a>
+                </li>
+                <li>
+                    <a href="shoppingShow.html" class="white">促销打折</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!--  中间内容区  -->
+    <div class="con-wrapper clearfix">
+        <!--  左侧导航栏   -->
+        <div class="leftbar-wrapper">
+            <!-- 购物分类  -->
+            <ul class="menu">
+                <li><span class="title">女装</span></li>
+
+                <li><span class="red_dot"></span><a href="#">上衣</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">下装</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">连衣裙</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">内衣</a>
+                    <span class="right_arrow"></span></li>
+
+                <li><span class="title">男装</span></li>
+
+                <li><span class="red_dot"></span><a href="#">T恤</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">短裤</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">衬衫</a>
+                    <span class="right_arrow"></span></li>
+
+                <li><span class="title">童装</span></li>
+
+                <li><span class="red_dot"></span><a href="#">上衣</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">裤子</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="title">运动</span></li>
+                <li><span class="red_dot"></span><a href="#">运动裤</a>
+                    <span class="right_arrow"></span></li>
+                <li><span class="red_dot"></span><a href="#">跑步鞋</a>
+                    <span class="right_arrow"></span></li>
+            </ul>
+
+        </div>
+
+        <!--  商品展示  -->
+        <div class="siddle clearfix">
+            <h1 class="pic_title">最新上架</h1>
+            <div class="pic_list">
+                <dl>
+                    <div><a href="shoppingDetail.html" target="_blank">
+                            <img src="./img/shopshow/yifu1.jpg" alt=""></a></div>
+                    <dt>
+                        <span class="price">￥198.00元</span>
+                        <span class="font12">324人购买</span>
+                    </dt>
+                    <dd>冬季新款牛仔外套加厚连帽毛领加绒牛仔棉衣</dd>
+                </dl>
+
+                <dl>
+                    <div><a href="shoppingDetail.html" target="_blank">
+                            <img src="./img/shopshow/yifu2.jpg" alt=""></a></div>
+                    <dt>
+                        <span class="price">￥69.00元</span>
+                        <span class="font12">534人购买</span>
+                    </dt>
+                    <dd>冬季新款牛仔外套加厚连帽毛领加绒牛仔棉衣</dd>
+                </dl>
+
+
+                <dl>
+                    <div><a href="shoppingDetail.html" target="_blank">
+                            <img src="./img/shopshow/yifu3.jpg" alt=""></a></div>
+                    <dt>
+                        <span class="price">￥160.00元</span>
+                        <span class="font12">643人购买</span>
+                    </dt>
+                    <dd>韩版甜美气质亮片热气球字母中长款圆领短袖T恤</dd>
+                </dl>
+
+                <dl>
+                    <div><a href="shoppingDetail.html" target="_blank">
+                            <img src="./img/shopshow/yifu4.jpg" alt=""></a></div>
+                    <dt>
+                        <span class="price">￥210.00元</span>
+                        <span class="font12">678人购买</span>
+                    </dt>
+                    <dd>2015款秋新款甜美学院立领中袖套头格子衬衫娃娃衫</dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+
+    <!--  版权区域  -->
+    <div class="foot_line">
+        <p align="center" class="padding-top">Copyright 2015- 2020 Q- Walking
+            Fashion E&S漫步时尚广场(QST教育)版权所有<br />中国青岛 高新区广博路325号青软教育集团
+            咨询热线: 400-658-0166400-658-1022 </p>
+        <p align="center"><img src="./img/foot_pic.jpg" alt=""></p>
+        <div class="clear"></div>
+    </div>
+</body>
+
+</html>
