@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            /*  居中的话， 需要先设置了这个 */
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: #bfa;
+
+            /*  设置文本居中 -- 按钮就居中了 */
+            text-align: center;
+
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            //  点击按钮 切换图片
+            var btnprev = document.getElementById("prev");
+            var btnnext = document.getElementById("next");
+
+            //  要切换图片， 就是要修改 img 标签的 src 属性
+            // 点击的时候 修改
+
+            //  获取 img 标签
+            // var imgobj = document.getElementsByTagName("img");
+            var imgobj = document.getElementsByTagName("img")[0];  // 确定了只有一个元素了
+            console.log(imgobj); // 返回的是一个数组
+
+            //  创建一个数组来保存图片的路径
+            var imgArr = ["../img/1.jpg", "../img/2.jpg",
+                "../img/3.jpg", "../img/4.jpg", "../img/5.jpg"];
+
+            //  创建一个变量，来保存当前正在显示的图片的索引
+            var index = 0;
+
+
+            var info = document.getElementById("info");
+            //  设置提示文字  --- 内容
+            info.innerHTML = "一共 " + imgArr.length + " 张图片，" +
+                "当前第 " + (index+1) + " 张";
+
+
+            //  向前翻
+            btnprev.onclick = function () {
+
+                //  判断 index 是否 -- 后小于 0
+                if (index <= 0) {
+                    index = imgArr.length;
+                }
+
+                // alert("上一张");
+                imgobj.src = imgArr[--index];
+
+                //  设置提示文字  --- 内容
+                info.innerHTML = "一共 " + imgArr.length + " 张图片，" +
+                    "当前第 " + (index+1) + " 张";
+
+
+            };
+            //  向后翻
+            btnnext.onclick = function () {
+
+                if (index >= imgArr.length - 1) {
+                    index = -1;
+                }
+
+                // alert("下一张");
+                // 就是修改 img  的 src 属性
+                // imgobj.src = "../img/2.jpg";
+                imgobj.src = imgArr[++index];
+
+                //  设置提示文字  --- 内容
+                info.innerHTML = "一共 " + imgArr.length + " 张图片，" +
+                    "当前第 " + (index+1) + " 张";
+
+            };
+
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="outer">
+
+        <p id="info"></p>
+
+        <img width="500px" height="320px" src="../img/1.jpg" alt="动漫壁纸">
+
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+
+    </div>
+
+</body>
+
+</html>
